@@ -1,0 +1,67 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "Tiny Dungeon.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Tiny Dungeon.tsx": {
+            "scaleInDock": 1
+        },
+        "Tiny Town.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Tiny Town.tsx": {
+            "scaleInDock": 1
+        },
+        "sample.tmj": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 283.16666666666663,
+                "y": 204.49999999999997
+            }
+        },
+        "sample.tmx": {
+            "scale": 4.239375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.0117941913607,
+                "y": 172.31313578062807
+            }
+        },
+        "sample_world.tmj": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 236.625,
+                "y": 169.375
+            }
+        }
+    },
+    "last.externalTilesetPath": "/Users/jasonvance/Projects/Princess Game/Assets/Tiled",
+    "last.imagePath": "/Users/jasonvance/Downloads/kenney_tiny-dungeon/Tilemap",
+    "map.lastUsedFormat": "json",
+    "openFiles": [
+    ],
+    "project": "Princess Game.tiled-project",
+    "recentFiles": [
+        "sample_world.tmj",
+        "sample.tmx",
+        "Tiny Town.tsj",
+        "Tiny Dungeon.tsj",
+        "sample.tmj"
+    ],
+    "tileset.lastUsedFormat": "json",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
