@@ -73,11 +73,11 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"Tiny Town.tsj"
+         "source":"Tiny Town.json"
         }, 
         {
          "firstgid":133,
-         "source":"Tiny Dungeon.tsj"
+         "source":"Tiny Dungeon.json"
         }],
  "tilewidth":16,
  "type":"map",
