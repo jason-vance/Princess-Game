@@ -6,11 +6,20 @@ public class TiledTileMap
     [Serializable]
     public class Layer
     {
+        [Serializable]
+        public class Property
+        {
+            public string name;
+            public string type;
+            public object value;
+        }
+
         public int[] data;
         public int height;
         public int id;
         public string name;
         public float opacity;
+        public Property[] properties;
         public string type;
         public bool visible;
         public int width;

@@ -54,6 +54,13 @@ public class GameWorldLoader : MonoBehaviour
                 grid.transform.SetParent(gameWorld.transform);
                 var tilemap = grid.GetComponentInChildren<Tilemap>();
 
+                foreach (var prop in layer.properties) {
+                    if (prop.name == "zOrder" && prop.type == "int") {
+                        var renderer = tilemap.GetComponent<TilemapRenderer>();
+                        renderer.sortingOrder = (int)(long)prop.value;
+                    }
+                }
+
                 for (var i = 0; i < layer.data.Length; i++) {
                     var tileGid = layer.data[i];
 

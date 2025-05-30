@@ -1,0 +1,88 @@
+{
+    "activeFile": "sample_world.json",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "/Users/jasonvance/Projects/Princess Game/Assets/Resources/Tiled/Tiny Dungeon.json": {
+            "scaleInDock": 1
+        },
+        "/Users/jasonvance/Projects/Princess Game/Assets/Resources/Tiled/Tiny Town.json": {
+            "scaleInDock": 1
+        },
+        "/Users/jasonvance/Projects/Princess Game/Assets/Resources/Tiled/sample_world.json": {
+            "scale": 5.14,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 239.98054474708172,
+                "y": 160.01945525291828
+            }
+        },
+        "Tiny Dungeon.json": {
+            "scaleInDock": 1
+        },
+        "Tiny Dungeon.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Tiny Dungeon.tsx": {
+            "scaleInDock": 1
+        },
+        "Tiny Town.json": {
+            "scaleInDock": 1
+        },
+        "Tiny Town.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Tiny Town.tsx": {
+            "scaleInDock": 1
+        },
+        "sample.tmj": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 283.16666666666663,
+                "y": 204.49999999999997
+            }
+        },
+        "sample.tmx": {
+            "scale": 4.239375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.0117941913607,
+                "y": 172.31313578062807
+            }
+        },
+        "sample_world.json": {
+            "scale": 5.141875,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 240.08751671326127,
+                "y": 159.96110368299506
+            }
+        },
+        "sample_world.tmj": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 236.625,
+                "y": 169.375
+            }
+        }
+    },
+    "openFiles": [
+        "sample_world.json"
+    ],
+    "project": "Princess Game.tiled-project",
+    "property.type": "int",
+    "recentFiles": [
+        "/Users/jasonvance/Projects/Princess Game/Assets/Resources/Tiled/sample_world.json",
+        "sample_world.json",
+        "sample_world.tmj",
+        "sample.tmx",
+        "Tiny Town.tsj",
+        "Tiny Dungeon.tsj",
+        "sample.tmj"
+    ]
+}
