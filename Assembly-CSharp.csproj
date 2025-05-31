@@ -64,6 +64,7 @@
     <Compile Include="Assets/Utils/GameWorldLoader/GameWorldLoader.cs" />
     <Compile Include="Assets/Resources/Tiled/TiledTileSet.cs" />
     <Compile Include="Assets/Resources/Tiled/TiledTileMap.cs" />
+    <Compile Include="Assets/PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
