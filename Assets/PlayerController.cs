@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0)) {
             OnTap(Input.mousePosition);
-        } else if (Input.touchCount > 0) {
+        } else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
             OnTap(Input.GetTouch(0).position);
         }
     }
