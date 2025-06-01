@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultTileMapGridPrefab: {fileID: 172616414764479266, guid: 29266978ffd344d099c1eaae68c5b039, type: 3}
+  PlayerController: {fileID: 730829710}
 --- !u!4 &375654653
 Transform:
   m_ObjectHideFlags: 0
@@ -270,7 +271,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

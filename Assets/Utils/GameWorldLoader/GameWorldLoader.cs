@@ -9,6 +9,9 @@ public class GameWorldLoader : MonoBehaviour
     [SerializeField]
     public GameObject DefaultTileMapGridPrefab;
 
+    [SerializeField]
+    public PlayerController PlayerController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +29,7 @@ public class GameWorldLoader : MonoBehaviour
         var mapJson = Resources.Load<TextAsset>("Tiled/sample_world");
         if (mapJson != null) {
             var tiledTileMap = JsonConvert.DeserializeObject<TiledTileMap>(mapJson.text);
+            SetPlayerGameWorld(tiledTileMap);
 
             var tileDict = new Dictionary<int, Tile>();
             foreach (var tiledTileSet in tiledTileMap.tileSets) {
@@ -76,5 +80,14 @@ public class GameWorldLoader : MonoBehaviour
         } else {
             Debug.LogError("mapJson was null");
         }
+    }
+
+    private void SetPlayerGameWorld(TiledTileMap tiledTileMap)
+    {
+        var playerGameWorld = new int[tiledTileMap.height][];
+        for (var i = 0; i < tiledTileMap.height; i++) {
+            playerGameWorld[i] = new int[tiledTileMap.width];
+        }
+        PlayerController.GameWorld = playerGameWorld;
     }
 }
