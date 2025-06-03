@@ -66,6 +66,11 @@
          "opacity":1,
          "properties":[
                 {
+                 "name":"useAsObstacles",
+                 "type":"bool",
+                 "value":true
+                }, 
+                {
                  "name":"zOrder",
                  "type":"int",
                  "value":10

@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
                         neighborLocation.y < 0 || neighborLocation.y >= grid.Length
                         || neighborLocation.x < 0 || neighborLocation.x >= grid[neighborLocation.y].Length
                         || grid[neighborLocation.y][neighborLocation.x] != -1
+                        || GameWorld[neighborLocation.y][neighborLocation.x] != 0
                     ) {
                         continue;
                     }

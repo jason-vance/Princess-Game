@@ -29,7 +29,14 @@ public class GameWorldLoader : MonoBehaviour
         var mapJson = Resources.Load<TextAsset>("Tiled/sample_world");
         if (mapJson != null) {
             var tiledTileMap = JsonConvert.DeserializeObject<TiledTileMap>(mapJson.text);
-            SetPlayerGameWorld(tiledTileMap);
+
+            var playerGameWorld = new int[tiledTileMap.height][];
+            for (var i = 0; i < tiledTileMap.height; i++) {
+                playerGameWorld[i] = new int[tiledTileMap.width];
+                for (var j = 0; j < tiledTileMap.width; j++) {
+                    playerGameWorld[i][j] = 0;
+                }
+            }
 
             var tileDict = new Dictionary<int, Tile>();
             foreach (var tiledTileSet in tiledTileMap.tileSets) {
@@ -57,11 +64,15 @@ public class GameWorldLoader : MonoBehaviour
                 var grid = Instantiate(DefaultTileMapGridPrefab);
                 grid.transform.SetParent(gameWorld.transform);
                 var tilemap = grid.GetComponentInChildren<Tilemap>();
+                var useAsObstacles = false;
 
                 foreach (var prop in layer.properties) {
                     if (prop.name == "zOrder" && prop.type == "int") {
                         var renderer = tilemap.GetComponent<TilemapRenderer>();
                         renderer.sortingOrder = (int)(long)prop.value;
+                    }
+                    if (prop.name == "useAsObstacles" && prop.type == "bool") {
+                        useAsObstacles = (bool)prop.value;
                     }
                 }
 
@@ -75,19 +86,16 @@ public class GameWorldLoader : MonoBehaviour
 
                     Tile tile = tileDict[tileGid]; // Assign a tile asset to this.
                     tilemap.SetTile(new Vector3Int(x, y, 0), tile); // Or use SetTiles() for multiple tiles.
+
+                    if (useAsObstacles) {
+                        playerGameWorld[y][x] = int.MaxValue;
+                    }
                 }
             }
+
+            PlayerController.GameWorld = playerGameWorld;
         } else {
             Debug.LogError("mapJson was null");
         }
-    }
-
-    private void SetPlayerGameWorld(TiledTileMap tiledTileMap)
-    {
-        var playerGameWorld = new int[tiledTileMap.height][];
-        for (var i = 0; i < tiledTileMap.height; i++) {
-            playerGameWorld[i] = new int[tiledTileMap.width];
-        }
-        PlayerController.GameWorld = playerGameWorld;
     }
 }

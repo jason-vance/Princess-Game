@@ -75,7 +75,7 @@
         "sample_world.json"
     ],
     "project": "Princess Game.tiled-project",
-    "property.type": "int",
+    "property.type": "bool",
     "recentFiles": [
         "/Users/jasonvance/Projects/Princess Game/Assets/Resources/Tiled/sample_world.json",
         "sample_world.json",
