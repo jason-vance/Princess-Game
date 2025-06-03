@@ -61,9 +61,12 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Resources/Tiled/TiledObject.cs" />
     <Compile Include="Assets/Utils/GameWorldLoader/GameWorldLoader.cs" />
     <Compile Include="Assets/Resources/Tiled/TiledTileSet.cs" />
     <Compile Include="Assets/Resources/Tiled/TiledTileMap.cs" />
+    <Compile Include="Assets/Resources/Tiled/TiledTileMapLayer.cs" />
+    <Compile Include="Assets/Resources/Tiled/TiledCustomProperty.cs" />
     <Compile Include="Assets/PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>

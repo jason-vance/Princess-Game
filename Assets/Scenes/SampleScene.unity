@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultTileMapGridPrefab: {fileID: 172616414764479266, guid: 29266978ffd344d099c1eaae68c5b039, type: 3}
+  CoinPrefab: {fileID: 8649339015571644303, guid: bcf9ec77a563f4879b049f6dd092c4b5, type: 3}
   PlayerController: {fileID: 730829710}
 --- !u!4 &375654653
 Transform:

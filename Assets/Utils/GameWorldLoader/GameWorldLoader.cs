@@ -8,6 +8,8 @@ public class GameWorldLoader : MonoBehaviour
 {
     [SerializeField]
     public GameObject DefaultTileMapGridPrefab;
+    [SerializeField]
+    public GameObject CoinPrefab;
 
     [SerializeField]
     public PlayerController PlayerController;
@@ -61,41 +63,66 @@ public class GameWorldLoader : MonoBehaviour
 
             var gameWorld = new GameObject("GameWorld").AddComponent<Grid>();
             foreach (var layer in tiledTileMap.layers) {
-                var grid = Instantiate(DefaultTileMapGridPrefab);
-                grid.transform.SetParent(gameWorld.transform);
-                var tilemap = grid.GetComponentInChildren<Tilemap>();
-                var useAsObstacles = false;
-
-                foreach (var prop in layer.properties) {
-                    if (prop.name == "zOrder" && prop.type == "int") {
-                        var renderer = tilemap.GetComponent<TilemapRenderer>();
-                        renderer.sortingOrder = (int)(long)prop.value;
-                    }
-                    if (prop.name == "useAsObstacles" && prop.type == "bool") {
-                        useAsObstacles = (bool)prop.value;
-                    }
+                if (layer is TiledTileMapTileLayer) {
+                    HandleTileLayer(tiledTileMap, playerGameWorld, tileDict, gameWorld, layer);
                 }
-
-                for (var i = 0; i < layer.data.Length; i++) {
-                    var tileGid = layer.data[i];
-
-                    if (tileGid == 0) { continue; }
-
-                    var x = i % tiledTileMap.width;
-                    var y = (tiledTileMap.height - 1) - (i / tiledTileMap.width);
-
-                    Tile tile = tileDict[tileGid]; // Assign a tile asset to this.
-                    tilemap.SetTile(new Vector3Int(x, y, 0), tile); // Or use SetTiles() for multiple tiles.
-
-                    if (useAsObstacles) {
-                        playerGameWorld[y][x] = int.MaxValue;
-                    }
+                if (layer is TiledTileMapObjectLayer) {
+                    HandleObjectLayer(tiledTileMap, layer);
                 }
             }
 
             PlayerController.GameWorld = playerGameWorld;
         } else {
             Debug.LogError("mapJson was null");
+        }
+    }
+
+    private void HandleTileLayer(TiledTileMap tiledTileMap, int[][] playerGameWorld, Dictionary<int, Tile> tileDict, Grid gameWorld, TiledTileMapLayer layer)
+    {
+        var tileLayer = (TiledTileMapTileLayer)layer;
+        var grid = Instantiate(DefaultTileMapGridPrefab);
+        grid.transform.SetParent(gameWorld.transform);
+        var tilemap = grid.GetComponentInChildren<Tilemap>();
+        var useAsObstacles = false;
+
+        foreach (var prop in tileLayer.properties) {
+            if (prop.name == "zOrder" && prop.type == "int") {
+                var renderer = tilemap.GetComponent<TilemapRenderer>();
+                renderer.sortingOrder = (int)(long)prop.value;
+            }
+            if (prop.name == "useAsObstacles" && prop.type == "bool") {
+                useAsObstacles = (bool)prop.value;
+            }
+        }
+
+        for (var i = 0; i < tileLayer.data.Length; i++) {
+            var tileGid = tileLayer.data[i];
+
+            if (tileGid == 0) { continue; }
+
+            var x = i % tiledTileMap.width;
+            var y = (tiledTileMap.height - 1) - (i / tiledTileMap.width);
+
+            Tile tile = tileDict[tileGid]; // Assign a tile asset to this.
+            tilemap.SetTile(new Vector3Int(x, y, 0), tile); // Or use SetTiles() for multiple tiles.
+
+            if (useAsObstacles) {
+                playerGameWorld[y][x] = int.MaxValue;
+            }
+        }
+    }
+
+    private void HandleObjectLayer(TiledTileMap tiledTileMap, TiledTileMapLayer layer)
+    {
+        var objectLayer = (TiledTileMapObjectLayer)layer;
+
+        foreach (var obj in objectLayer.objects) {
+            var coin = Instantiate(CoinPrefab);
+
+            var x = obj.X / tiledTileMap.tileWidth;
+            var y = tiledTileMap.height - (obj.Y / tiledTileMap.tileHeight);
+
+            coin.transform.position = new Vector3(x, y, 0);
         }
     }
 }
